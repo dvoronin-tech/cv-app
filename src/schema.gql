@@ -18,6 +18,16 @@ input CreateProfile {
   website: String
 }
 
+input CreateProject {
+  description: String!
+  name: String!
+  profileId: String!
+  source: String
+  status: String!
+  technologies: [String!]!
+  url: String
+}
+
 input CreateSkill {
   description: String
   level: String!
@@ -32,6 +42,7 @@ scalar DateTime
 
 type Mutation {
   createProfile(data: CreateProfile!): Profile!
+  createProject(data: CreateProject!): Project!
   createSkill(data: CreateSkill!): Skill!
 }
 
@@ -47,6 +58,7 @@ type Profile {
   lastName: String!
   linkedin: String
   phone: String
+  projects: [Project!]!
   skills: [Skill!]!
   summary: String!
   telegram: String
@@ -55,8 +67,20 @@ type Profile {
   website: String
 }
 
+type Project {
+  description: String!
+  id: ID!
+  name: String!
+  profileId: String!
+  source: String
+  status: String!
+  technologies: [String!]!
+  url: String
+}
+
 type Query {
   getAllProfiles: [Profile!]!
+  getProjectsByProfileId(profileId: String!): [Project!]!
   getSkillsByProfileId(profileId: String!): [Skill!]!
 }
 
