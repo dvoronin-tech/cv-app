@@ -1,0 +1,60 @@
+{
+    "name": "cv-app",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Digital business card API",
+    "scripts": {
+        "build": "nest build",
+        "dev": "nest start --watch",
+        "preview": "next build && node dist/main",
+        "test": "vitest run",
+        "test:watch": "vitest"
+    },
+    "dependencies": {
+        "@apollo/server": "^5.5.1",
+        "@as-integrations/express5": "^1.1.2",
+        "@nestjs/apollo": "^14.0.3",
+        "@nestjs/common": "^12.1.2",
+        "@nestjs/config": "^12.0.1",
+        "@nestjs/core": "^12.1.2",
+        "@nestjs/graphql": "^14.0.3",
+        "@nestjs/platform-express": "^12.1.2",
+        "@nestjs/testing": "^12.1.2",
+        "@prisma/adapter-pg": "^7.10.0",
+        "@prisma/client": "^7.10.0",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.15.1",
+        "graphql": "^16.14.2",
+        "prettier": "^3.9.10",
+        "reflect-metadata": "^0.2.2",
+        "rxjs": "^7.8.2"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^12.0.8",
+        "@nestjs/schematics": "^12.0.6",
+        "@swc/core": "^1.16.18",
+        "@types/node": "^24.10.15",
+        "dotenv": "^17.2.3",
+        "prisma": "^7.10.0",
+        "source-map-support": "^0.5.21",
+        "ts-node": "^10.9.2",
+        "tsconfig-paths": "^4.2.0",
+        "tsx": "^4.20.6",
+        "typescript": "~6.0.3",
+        "unplugin-swc": "^2.0.0",
+        "vitest": "^5.0.3"
+    },
+    "engines": {
+        "node": ">=22.12"
+    },
+    "packageManager": "pnpm@10.28.0",
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "@apollo/protobufjs",
+            "@prisma/engines",
+            "@swc/core",
+            "esbuild",
+            "prisma"
+        ]
+    }
+}
