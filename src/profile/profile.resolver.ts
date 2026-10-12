@@ -12,6 +12,7 @@ import { SkillService } from '../skill/skill.service';
 import { Skill } from '../skill/skill.model';
 import { Project } from '../project/project.model';
 import { ProjectService } from '../project/project.service';
+import { ExperienceService } from '../experience/experience.service';
 
 @Resolver(() => Profile)
 export class ProfileResolver {
@@ -19,6 +20,7 @@ export class ProfileResolver {
         private profileService: ProfileService,
         private skillService: SkillService,
         private projectService: ProjectService,
+        private experienceService: ExperienceService,
     ) {}
 
     @Query(() => [Profile])
@@ -36,6 +38,12 @@ export class ProfileResolver {
     projects(@Parent() parent: Project) {
         const { id } = parent;
         return this.projectService.getProjectsByProfileId(id);
+    }
+
+    @ResolveField(() => [Project])
+    experience(@Parent() parent: Project) {
+        const { id } = parent;
+        return this.experienceService.getExperienceByProfileId(id);
     }
 
     @Mutation(() => Profile)

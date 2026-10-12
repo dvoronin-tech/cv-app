@@ -2,6 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateExperience {
+  achievements: [String!]!
+  companyName: String!
+  description: String!
+  endDate: DateTime
+  profileId: String!
+  role: String!
+  startDate: DateTime!
+}
+
 input CreateProfile {
   birthDate: DateTime!
   city: String!
@@ -40,7 +50,19 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Experience {
+  achievements: [String!]!
+  companyName: String!
+  description: String!
+  endDate: DateTime
+  id: ID!
+  profileId: String!
+  role: String!
+  startDate: DateTime!
+}
+
 type Mutation {
+  createExperience(experience: CreateExperience!): Experience!
   createProfile(data: CreateProfile!): Profile!
   createProject(data: CreateProject!): Project!
   createSkill(data: CreateSkill!): Skill!
@@ -52,6 +74,7 @@ type Profile {
   country: String!
   createdAt: DateTime!
   email: String!
+  experience: [Project!]!
   firstName: String!
   github: String
   id: ID!
@@ -80,6 +103,7 @@ type Project {
 
 type Query {
   getAllProfiles: [Profile!]!
+  getExperienceByProfileId(profileId: String!): [Experience!]!
   getProjectsByProfileId(profileId: String!): [Project!]!
   getSkillsByProfileId(profileId: String!): [Skill!]!
 }
