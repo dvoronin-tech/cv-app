@@ -1,0 +1,26 @@
+model Profile {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  birthDate DateTime @db.Date
+
+  title   String
+  summary String
+  city    String
+  country String
+
+  email    String  @unique
+  phone    String?
+  telegram String?
+  github   String?
+  linkedin String?
+  website  String?
+
+  experiences Experience[]
+  skills      Skill[]
+  projects    Project[]
+  educations  Education[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

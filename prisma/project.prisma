@@ -1,0 +1,21 @@
+enum ProjectStatus {
+  WIP
+  STOPPED
+  FINISHED
+}
+
+model Project {
+  id           String        @id @default(cuid())
+  status       ProjectStatus
+  technologies String[]
+  name         String
+  description  String
+
+  url    String?
+  source String?
+
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId String
+
+  @@index([profileId])
+}
