@@ -47,6 +47,7 @@ type Profile {
   lastName: String!
   linkedin: String
   phone: String
+  skills: [Skill!]!
   summary: String!
   telegram: String
   title: String!

@@ -3,6 +3,7 @@ import { SkillResolver } from './skill.resolver';
 import { SkillService } from './skill.service';
 
 @Module({
-  providers: [SkillResolver, SkillService]
+    providers: [SkillResolver, SkillService],
+    exports: [SkillService],
 })
 export class SkillModule {}
