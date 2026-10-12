@@ -5,8 +5,8 @@ import {
     InputType,
     ObjectType,
 } from '@nestjs/graphql';
-import type {
-    Profile as ProfileRecord,
+import {
+    type Profile as ProfileRecord,
     Prisma,
 } from '../generated/prisma/client';
 

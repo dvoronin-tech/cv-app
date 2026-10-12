@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { CreateProfile } from './profile.model';
 
 @Injectable()
 export class ProfileService {
@@ -10,7 +10,7 @@ export class ProfileService {
         return this.prisma.profile.findMany();
     }
 
-    createProfile(data: Prisma.ProfileCreateInput) {
+    createProfile(data: CreateProfile) {
         return this.prisma.profile.create({ data });
     }
 }

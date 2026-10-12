@@ -5,6 +5,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ProfileModule } from './profile/profile.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
+import { SkillModule } from './skill/skill.module';
 
 @Module({
     imports: [
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
         ConfigModule.forRoot({ isGlobal: true }),
         ProfileModule,
         PrismaModule,
+        SkillModule,
     ],
 })
 export class AppModule {}
