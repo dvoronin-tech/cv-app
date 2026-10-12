@@ -1,6 +1,6 @@
 import { Query, Resolver, Mutation, Args } from '@nestjs/graphql';
 import { ProfileService } from './profile.service';
-import { CreateProfile, Profile } from './models/profile.model';
+import { CreateProfile, Profile } from './profile.model';
 
 @Resolver()
 export class ProfileResolver {

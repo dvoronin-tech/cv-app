@@ -8,7 +8,7 @@ import {
 import type {
     Profile as ProfileRecord,
     Prisma,
-} from '../../generated/prisma/client';
+} from '../generated/prisma/client';
 
 @ObjectType({ isAbstract: true })
 @InputType({ isAbstract: true })
