@@ -1,10 +1,11 @@
 model Experience {
-  id          String    @id @default(cuid())
-  companyName String
-  role        String
-  description String
-  startDate   DateTime  @db.Date
-  endDate     DateTime? @db.Date
+  id           String    @id @default(cuid())
+  companyName  String
+  archivements String[]
+  role         String
+  description  String
+  startDate    DateTime  @db.Date
+  endDate      DateTime? @db.Date
 
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String

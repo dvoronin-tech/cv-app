@@ -1,16 +1,10 @@
 import { join } from 'node:path';
 import { Module } from '@nestjs/common';
-import { GraphQLModule, Query, Resolver } from '@nestjs/graphql';
+import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ProfileModule } from './profile/profile.module';
-
-@Resolver()
-export class AppResolver {
-    @Query(() => String)
-    hello() {
-        return 'Hello World!';
-    }
-}
+import { PrismaModule } from './prisma/prisma.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
     imports: [
@@ -20,8 +14,9 @@ export class AppResolver {
             sortSchema: true,
             graphiql: true,
         }),
+        ConfigModule.forRoot({ isGlobal: true }),
         ProfileModule,
+        PrismaModule,
     ],
-    providers: [AppResolver],
 })
 export class AppModule {}
