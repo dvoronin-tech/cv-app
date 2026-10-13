@@ -2,6 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateEducation {
+  description: String!
+  endDate: DateTime
+  name: String!
+  profileId: String!
+  startDate: DateTime!
+}
+
 input CreateExperience {
   achievements: [String!]!
   companyName: String!
@@ -50,6 +58,15 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Education {
+  description: String!
+  endDate: DateTime
+  id: ID!
+  name: String!
+  profileId: String!
+  startDate: DateTime!
+}
+
 type Experience {
   achievements: [String!]!
   companyName: String!
@@ -62,6 +79,7 @@ type Experience {
 }
 
 type Mutation {
+  createEducation(data: CreateEducation!): Education!
   createExperience(experience: CreateExperience!): Experience!
   createProfile(data: CreateProfile!): Profile!
   createProject(data: CreateProject!): Project!
@@ -73,8 +91,9 @@ type Profile {
   city: String!
   country: String!
   createdAt: DateTime!
+  educations: [Education!]!
   email: String!
-  experience: [Project!]!
+  experience: [Experience!]!
   firstName: String!
   github: String
   id: ID!
@@ -102,6 +121,7 @@ type Project {
 }
 
 type Query {
+  getAllEducationsByProfileId(id: String!): Education!
   getAllProfiles: [Profile!]!
   getExperienceByProfileId(profileId: String!): [Experience!]!
   getProjectsByProfileId(profileId: String!): [Project!]!

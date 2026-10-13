@@ -4,6 +4,7 @@ import { ProfileResolver } from './profile.resolver';
 import { SkillService } from '../skill/skill.service';
 import { ProjectService } from '../project/project.service';
 import { ExperienceService } from '../experience/experience.service';
+import { EducationService } from '../education/education.service';
 
 @Module({
     providers: [
@@ -12,6 +13,7 @@ import { ExperienceService } from '../experience/experience.service';
         SkillService,
         ProjectService,
         ExperienceService,
+        EducationService,
     ],
 })
 export class ProfileModule {}

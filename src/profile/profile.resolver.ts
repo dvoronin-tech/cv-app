@@ -13,6 +13,9 @@ import { Skill } from '../skill/skill.model';
 import { Project } from '../project/project.model';
 import { ProjectService } from '../project/project.service';
 import { ExperienceService } from '../experience/experience.service';
+import { EducationService } from '../education/education.service';
+import { Experience } from '../experience/experience.model';
+import { Education } from '../education/education.model';
 
 @Resolver(() => Profile)
 export class ProfileResolver {
@@ -21,6 +24,7 @@ export class ProfileResolver {
         private skillService: SkillService,
         private projectService: ProjectService,
         private experienceService: ExperienceService,
+        private educationService: EducationService,
     ) {}
 
     @Query(() => [Profile])
@@ -40,10 +44,16 @@ export class ProfileResolver {
         return this.projectService.getProjectsByProfileId(id);
     }
 
-    @ResolveField(() => [Project])
+    @ResolveField(() => [Experience])
     experience(@Parent() parent: Project) {
         const { id } = parent;
         return this.experienceService.getExperienceByProfileId(id);
+    }
+
+    @ResolveField(() => [Education])
+    educations(@Parent() parent: Project) {
+        const { id } = parent;
+        return this.educationService.getAllEducationsByProfileId(id);
     }
 
     @Mutation(() => Profile)
