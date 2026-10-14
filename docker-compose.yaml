@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_DB: cv
+      POSTGRES_USER: cv
+      POSTGRES_PASSWORD: cv
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cv"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  cv-app:
+    build: .
+    container_name: cv-app
+    environment:
+      DATABASE_URL: postgresql://cv:cv@postgres:5432/cv
+    ports:
+      - "3001:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pg_data:
