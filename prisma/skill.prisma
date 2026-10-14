@@ -13,5 +13,6 @@ model Skill {
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String
 
+  @@unique([profileId, name])
   @@index([profileId])
 }

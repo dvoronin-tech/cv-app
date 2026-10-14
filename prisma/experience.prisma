@@ -10,5 +10,6 @@ model Experience {
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String
 
+  @@unique([profileId, companyName, startDate])
   @@index([profileId])
 }

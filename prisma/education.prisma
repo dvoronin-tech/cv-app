@@ -8,5 +8,6 @@ model Education {
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
   profileId String
 
+  @@unique([profileId, name, startDate])
   @@index([profileId])
 }
