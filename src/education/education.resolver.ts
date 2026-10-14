@@ -6,7 +6,7 @@ import { Education } from './education.model';
 export class EducationResolver {
     constructor(private educationService: EducationService) {}
 
-    @Query(() => Education)
+    @Query(() => [Education])
     getAllEducationsByProfileId(@Args('id') id: string) {
         return this.educationService.getAllEducationsByProfileId(id);
     }

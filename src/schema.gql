@@ -62,7 +62,7 @@ type Project {
 }
 
 type Query {
-  getAllEducationsByProfileId(id: String!): Education!
+  getAllEducationsByProfileId(id: String!): [Education!]!
   getAllProfiles: [Profile!]!
   getExperienceByProfileId(profileId: String!): [Experience!]!
   getProjectsByProfileId(profileId: String!): [Project!]!

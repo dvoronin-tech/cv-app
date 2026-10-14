@@ -32,19 +32,19 @@ export class ProfileResolver {
     }
 
     @ResolveField(() => [Project])
-    projects(@Parent() parent: Project) {
+    projects(@Parent() parent: Profile) {
         const { id } = parent;
         return this.projectService.getProjectsByProfileId(id);
     }
 
     @ResolveField(() => [Experience])
-    experience(@Parent() parent: Project) {
+    experience(@Parent() parent: Profile) {
         const { id } = parent;
         return this.experienceService.getExperienceByProfileId(id);
     }
 
     @ResolveField(() => [Education])
-    educations(@Parent() parent: Project) {
+    educations(@Parent() parent: Profile) {
         const { id } = parent;
         return this.educationService.getAllEducationsByProfileId(id);
     }
