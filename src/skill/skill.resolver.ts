@@ -1,6 +1,6 @@
-import { Query, Resolver, Args, Mutation } from '@nestjs/graphql';
+import { Query, Resolver, Args } from '@nestjs/graphql';
 import { SkillService } from './skill.service';
-import { CreateSkill, Skill } from './skill.model';
+import { Skill } from './skill.model';
 
 @Resolver()
 export class SkillResolver {
@@ -9,10 +9,5 @@ export class SkillResolver {
     @Query(() => [Skill])
     getSkillsByProfileId(@Args('profileId') profileId: string) {
         return this.skillService.getSkillsByProfileId(profileId);
-    }
-
-    @Mutation(() => Skill)
-    createSkill(@Args('data') data: CreateSkill) {
-        return this.skillService.createSkill(data);
     }
 }

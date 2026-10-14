@@ -2,57 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreateEducation {
-  description: String!
-  endDate: DateTime
-  name: String!
-  profileId: String!
-  startDate: DateTime!
-}
-
-input CreateExperience {
-  achievements: [String!]!
-  companyName: String!
-  description: String!
-  endDate: DateTime
-  profileId: String!
-  role: String!
-  startDate: DateTime!
-}
-
-input CreateProfile {
-  birthDate: DateTime!
-  city: String!
-  country: String!
-  email: String!
-  firstName: String!
-  github: String
-  lastName: String!
-  linkedin: String
-  phone: String
-  summary: String!
-  telegram: String
-  title: String!
-  website: String
-}
-
-input CreateProject {
-  description: String!
-  name: String!
-  profileId: String!
-  source: String
-  status: String!
-  technologies: [String!]!
-  url: String
-}
-
-input CreateSkill {
-  description: String
-  level: String!
-  name: String!
-  profileId: String!
-}
-
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -76,14 +25,6 @@ type Experience {
   profileId: String!
   role: String!
   startDate: DateTime!
-}
-
-type Mutation {
-  createEducation(data: CreateEducation!): Education!
-  createExperience(experience: CreateExperience!): Experience!
-  createProfile(data: CreateProfile!): Profile!
-  createProject(data: CreateProject!): Project!
-  createSkill(data: CreateSkill!): Skill!
 }
 
 type Profile {

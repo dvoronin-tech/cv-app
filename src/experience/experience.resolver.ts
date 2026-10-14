@@ -1,7 +1,7 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 import { ProjectService } from '../project/project.service';
 import { ExperienceService } from './experience.service';
-import { CreateExperience, Experience } from './experience.model';
+import { Experience } from './experience.model';
 
 @Resolver()
 export class ExperienceResolver {
@@ -10,10 +10,5 @@ export class ExperienceResolver {
     @Query(() => [Experience])
     getExperienceByProfileId(@Args('profileId') profileId: string) {
         return this.experienceService.getExperienceByProfileId(profileId);
-    }
-
-    @Mutation(() => Experience)
-    createExperience(@Args('experience') experience: CreateExperience) {
-        return this.experienceService.createExperience(experience);
     }
 }

@@ -1,13 +1,6 @@
-import {
-    Query,
-    Resolver,
-    Mutation,
-    Args,
-    ResolveField,
-    Parent,
-} from '@nestjs/graphql';
+import { Query, Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { ProfileService } from './profile.service';
-import { CreateProfile, Profile } from './profile.model';
+import { Profile } from './profile.model';
 import { SkillService } from '../skill/skill.service';
 import { Skill } from '../skill/skill.model';
 import { Project } from '../project/project.model';
@@ -54,10 +47,5 @@ export class ProfileResolver {
     educations(@Parent() parent: Project) {
         const { id } = parent;
         return this.educationService.getAllEducationsByProfileId(id);
-    }
-
-    @Mutation(() => Profile)
-    createProfile(@Args('data') data: CreateProfile) {
-        return this.profileService.createProfile(data);
     }
 }
