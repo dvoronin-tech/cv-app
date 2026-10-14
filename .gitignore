@@ -3,6 +3,7 @@
 /dist
 /tmp
 /out-tsc
+.idea
 
 .env
 .env.*.local
