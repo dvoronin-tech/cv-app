@@ -9,6 +9,7 @@ import { SkillModule } from './skill/skill.module';
 import { ProjectModule } from './project/project.module';
 import { ExperienceModule } from './experience/experience.module';
 import { EducationModule } from './education/education.module';
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 
 @Module({
     imports: [
@@ -16,7 +17,8 @@ import { EducationModule } from './education/education.module';
             driver: ApolloDriver,
             autoSchemaFile: join(process.cwd(), 'src', 'schema.gql'),
             sortSchema: true,
-            graphiql: true,
+            graphiql: false,
+            plugins: [ApolloServerPluginLandingPageLocalDefault() as any],
         }),
         ConfigModule.forRoot({ isGlobal: true }),
         ProfileModule,
